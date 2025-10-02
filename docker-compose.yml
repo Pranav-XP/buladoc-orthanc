@@ -1,4 +1,3 @@
-version: "3"
 services:
   pacs:
     container_name: orthanc
@@ -11,7 +10,7 @@ services:
       - ./orthanc_db:/var/lib/orthanc/db/
     restart: always
     networks:
-      - pacs
+      - buladoc
 
   ohif_viewer:
     container_name: ohif
@@ -26,8 +25,8 @@ services:
       - ./logo.png:/usr/share/nginx/html/logo.png:ro
     restart: always
     networks:
-      - pacs
+      - buladoc
 
 networks:
-  pacs:
+  buladoc:
     external: true
